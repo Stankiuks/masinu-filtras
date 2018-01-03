@@ -52,13 +52,19 @@ $(document).ready(function () {
         for(var i = 0; i < data.length; i++){
             html += '<td>' + data[i] + '</td>';
         }
-        html +='<td><button class="btn btn-primary" type="button" title="Redaguoti"><i class="fas fa-pencil-alt"></i></button>'
-        html +='<button class="btn-danger" type="button" title="Trinti"><i class="fas fa-trash"></i></button></td>'
+        html +='<td><button class="btn btn-primary edit" type="button" title="Redaguoti"><i class="fas fa-pencil-alt"></i></button>';
+        html +='<button class="btn btn-danger delete" type="button" title="Trinti"><i class="fas fa-trash"></i></button></td>';
         html += '</tr>';
 
         listNumber++;
 
         $('#list tbody').append(html);
     }
+
+    $('body').on('click', '#list .edit', function () {
+       var numeriai, atstumas, laikas;
+       numeriai = $(this).parent('tr').find('td:nth-child(1)');
+
+    });
 
 });
