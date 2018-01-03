@@ -35,19 +35,28 @@ $(document).ready(function () {
         tmpArray = [licensePlate, distance, time, speed];
 
         //Iterpiame nauja eilute su ivestais duomenimis
-        insertRow(tmpArray);
+        var event = $('#carModal').attr('data-event');
 
+        switch (event){
+            case 'create':
+                insertRow(tmpArray);
+                break;
+            case 'edit':
+                var row = $('#carModal').attr('data-edit-row');
+                editRow(tmpArray, row);
+                break;
+        }
         //Isvalome input laukus
         $('#distance').val('');
         $('#license-plate').val('');
         $('#time').val('');
 
-        $('#carForm').modal('hide');
+        $('#carModal').modal('hide');
     });
-    
+
     function insertRow(data) {
         var html = '';
-        html = '<tr>';
+        html = '<tr data-row = "' + listNumber + '">';
         html += '<td>' + listNumber + '</td>';
         for(var i = 0; i < data.length; i++){
             html += '<td>' + data[i] + '</td>';
@@ -61,6 +70,13 @@ $(document).ready(function () {
         $('#list tbody').append(html);
     }
 
+    function editRow(data, rowId){
+        $('#list tbody tr[data-row=' + rowId + ']').find('td').eq(1).text(data[0]);
+        $('#list tbody tr[data-row=' + rowId + ']').find('td').eq(2).text(data[1]);
+        $('#list tbody tr[data-row=' + rowId + ']').find('td').eq(3).text(data[2]);
+        $('#list tbody tr[data-row=' + rowId + ']').find('td').eq(4).text(data[3]);
+    }
+
     $('body').on('click', '#list .edit', function () {
        var numeriai, atstumas, laikas;
        numeriai = $(this).closest('tr').children('td').eq(1).text();
@@ -68,8 +84,8 @@ $(document).ready(function () {
        laikas = $(this).closest('tr').children('td').eq(3).text();
 
        $('#carModal').modal('show');
-
        $('#carModal').attr('data-event', 'edit');
+       $('#carModal').attr('data-edit-row', $(this).closest('tr').attr('data-row'));
 
         $('#distance').val(atstumas);
         $('#license-plate').val(numeriai);
@@ -79,6 +95,8 @@ $('#carModal').on('hidden.bs.modal', function () {
     $('#distance').val('');
     $('#license-plate').val('');
     $('#time').val('');
+    $('#carModal').attr('data-event', 'create');
+    $('#carModal').attr('data-edit-row', 0);
 });
 
 
