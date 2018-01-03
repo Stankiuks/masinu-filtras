@@ -63,8 +63,23 @@ $(document).ready(function () {
 
     $('body').on('click', '#list .edit', function () {
        var numeriai, atstumas, laikas;
-       numeriai = $(this).parent('tr').find('td:nth-child(1)');
+       numeriai = $(this).closest('tr').children('td').eq(1).text();
+       atstumas = $(this).closest('tr').children('td').eq(2).text();
+       laikas = $(this).closest('tr').children('td').eq(3).text();
 
+       $('#carModal').modal('show');
+
+       $('#carModal').attr('data-event', 'edit');
+
+        $('#distance').val(atstumas);
+        $('#license-plate').val(numeriai);
+        $('#time').val(laikas);
     });
+$('#carModal').on('hidden.bs.modal', function () {
+    $('#distance').val('');
+    $('#license-plate').val('');
+    $('#time').val('');
+});
+
 
 });
