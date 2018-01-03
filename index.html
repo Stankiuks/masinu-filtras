@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Uzduotis7</title>
+    <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css">
+
+</head>
+<body>
+
+<div class="container">
+    <h1 class="text-center">Automobilio duomenų įvedimas</h1>
+    <div class="row mt-5">
+        <div class="col-12">
+            <button type="button" class="btn-lg btn btn-primary" data-toggle= "modal" data-target="#carModal">Naujas</button>
+        </div>
+    </div>
+      <div class="row mt-5">
+       <div class="col-12">
+            <table id="list" class="table text-center">
+                <thead>
+                    <th scope="col">Nr.</th>
+                    <th scope="col">Automobilio valstybinis numeris</th>
+                    <th scope="col">Nuvažiuotas atstumas (m)</th>
+                    <th scope="col">Sugaištas laikas (s)</th>
+                    <th scope="col">Gretis (km/h)</th>
+                <th>Veiksmai</th>
+                </thead>
+                <tbody>
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+<div class="modal fade" id="carModal" tabindex="-1" role="dialog" aria-labelledby="carModal" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="carModal">Automobilio ivedimo forma</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form>
+        <div class="row mt-5">
+            <div class="col-12">
+                <div class="form-group">
+                    <label for="license-plate">Automobilio valstybiniai numeriai</label>
+                    <input type="text" name="license_plate" class="form-control" id="license-plate" placeholder="Automobilio valstybinis numeris">
+                </div>
+            </div>
+            <div class="col-12">
+                <div class="form-group">
+                    <label for="distance">Nuvažiuotas atstumas</label>
+                    <input type="text" name="distance" class="form-control" id="distance" placeholder="Nuvažiuotas atstumas">
+                </div>
+            </div>
+            <div class="col-12">
+                <div class="form-group">
+                    <label for="time">Sugaištas laikas</label>
+                    <input type="text" name="time" class="form-control" id="time" placeholder="Sugaištas laikas">
+                </div>
+            </div>
+
+            <div class="col-12 text-center mt-5">
+             </div>
+        </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Atsaukti</button>
+        <button type="button" class="btn btn-primary" id="save">Saugoti</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="js/jquery-3.2.1.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+<script src="bootstrap/js/bootstrap.min.js"></script>
+    <script defer src="https://use.fontawesome.com/releases/v5.0.2/js/all.js"></script>
+<script src="js/script.js"></script>
+</body>
+</html>
