@@ -99,5 +99,14 @@ $('#carModal').on('hidden.bs.modal', function () {
     $('#carModal').attr('data-edit-row', 0);
 });
 
+    $('body').on('click', '#list .delete', function () {
+        $('#deleteRow').modal('show');
+        $('#deleteRow').attr('data-delete-row', $(this).closest('tr').attr('data-row'));
+    });
 
+    $('#deleteButton').on('click', function(){
+        var rowId = $('#deleteRow').attr('data-delete-row');
+        $('#list tbody tr[data-row=' + rowId + ']').remove();
+        $('#deleteRow').modal('hide');
+    });
 });
